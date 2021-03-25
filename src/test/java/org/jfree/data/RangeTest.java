@@ -115,7 +115,7 @@ public class RangeTest {
         Range range = new Range(0, 3);
         Range expanded = Range.expandToInclude(range, -3);
         assertEquals(-3, expanded.getLowerBound(), 0.1d);
-        assertEquals(-3, expanded.getUpperBound(), 0.1d);
+        assertEquals(3, expanded.getUpperBound(), 0.1d);
     }
 
     @Test
@@ -135,7 +135,7 @@ public class RangeTest {
     @Test
     public void testCentralValueNegativeRange(){
         Range range = new Range(-3.0, -2.0);
-        assertEquals(2.5d, range.getCentralValue(), 0.1d);
+        assertEquals(-2.5d, range.getCentralValue(), 0.1d);
     }
 
     @Test
@@ -219,7 +219,7 @@ public class RangeTest {
         Range range = new Range(3, 5);
         Range shifted = Range.shift(range, -4, true);
         assertEquals(-1, shifted.getLowerBound(), 0.1d);
-        assertEquals(-1, shifted.getUpperBound() , 0.1d);
+        assertEquals(1, shifted.getUpperBound() , 0.1d);
     }
 
     @Test

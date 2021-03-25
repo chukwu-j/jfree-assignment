@@ -17,7 +17,7 @@ public class DataUtilitiesTest {
     @Before
     public void setUp()  {
         value = mock(Values2D.class);
-        when(value.getColumnCount()).thenReturn(4);
+        when(value.getColumnCount()).thenReturn(3);
         when(value.getRowCount()).thenReturn(3);
         when(value.getValue(0, 2)).thenReturn(5);
         when(value.getValue(1, 2)).thenReturn(7);
@@ -98,9 +98,9 @@ public class DataUtilitiesTest {
     @Test
     public void testGetCumulativePercentage(){
         KeyedValues result = DataUtilities.getCumulativePercentages(keyedValues);
-        assertEquals( 5 / 16, result.getValue(0));
-        assertEquals( (5+9) / 16, result.getValue(1));
-        assertEquals( (5+9+2) / 16, result.getValue(0));
+        assertEquals( 5d / 16d, result.getValue(0).doubleValue(), 0.1d);
+        assertEquals( 14d / 16d, result.getValue(1).doubleValue(), 0.1d);
+        assertEquals(  1d, result.getValue(2).doubleValue(), 0.1d);
     }
 
     @Test(expected = IllegalArgumentException.class)
