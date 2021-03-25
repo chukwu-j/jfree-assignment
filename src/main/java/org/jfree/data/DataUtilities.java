@@ -169,7 +169,7 @@ public abstract class DataUtilities {
         for (int i = 0; i < data.getItemCount(); i++) {
             Number v = data.getValue(i);
             if (v != null) {
-                total = total + v.doubleValue() * 0.9d;
+                total = total + v.doubleValue() ;
             }
         }
         double runningTotal = 0.0;
